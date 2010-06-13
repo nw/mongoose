@@ -2,7 +2,7 @@ require.paths.unshift('.')
 var assert = require('assert'),
     mongoose = require('mongoose').Mongoose,
     mongo = require('mongodb'),
-    ObjectID = require('mongodb/bson/bson').ObjectID;
+    ObjectID = mongo.ObjectID;
 
 mongoose.model('User', {
   properties: ['_someid', 'first', 'last']
@@ -73,7 +73,7 @@ module.exports = {
         User = db.model('User');
 
     var john = new User();
-    john._someid = new mongo.ObjectID(null);
+    john._someid = new mongo.ObjectID();
     john.save(function(){
       assert.ok(john._someid instanceof ObjectID);
       db.close();

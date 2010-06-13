@@ -144,14 +144,14 @@ describe 'Util'
         })
         (new User('tj')).name.should.eql 'tj'
       end
-    
+    /*
       it 'should call the "init" method only once per initialization'
         init = function(){}
         User = Class({ init: init })
         User.prototype.should.receive('init', 'once').with_args('tj')
         new User('tj')
       end
-    
+    */
       it 'should inherit properties of the super class'
         User = Class({ type: 'user' })
         Admin = User.extend()

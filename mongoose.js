@@ -1,4 +1,4 @@
-require.paths.unshift(__dirname + '/lib/support/node-mongodb-native/lib');
+require.paths.unshift(__dirname + '/lib/support/node-mongodb/lib');
 
 var sys = require('sys'),
     url = require('url'),
@@ -21,6 +21,7 @@ Mongoose = this.Mongoose = {
     if (!_uri.pathname) throw new Error('Please provide a database name');
     _uri.port = _uri.port || '27017';
     _uri.hostname = _uri.hostname.toLowerCase();
+    if(_uri.hostname == 'localhost') _uri.hostname = '127.0.0.1';
     _uri.host = _uri.host.toLowerCase();
     _uri.pathname = _uri.pathname.replace(/\//g, '').toLowerCase();
     return this._lookup(_uri) || this._open(_uri, options);

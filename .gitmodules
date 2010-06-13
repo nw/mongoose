@@ -7,3 +7,6 @@
 [submodule "tests/integration/support/expresso"]
 	path = tests/integration/support/expresso
 	url = git://github.com/visionmedia/expresso.git
+[submodule "lib/support/node-mongodb"]
+	path = lib/support/node-mongodb
+	url = git://github.com/nw/node-mongodb.git
